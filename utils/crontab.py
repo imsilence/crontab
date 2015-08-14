@@ -74,15 +74,15 @@ def _read_configs():
     return _cmds
 
 
-def _judge_time(current_time_sequence, _time_sequence):
+def _judge_time(current_time_sequence, time_sequence):
     for _i in xrange(5):
-        if _time_sequence[_i] == '*':
+        if time_sequence[_i] == '*':
             continue
-        elif str(_time_sequence[_i]).startswith('*/'):
-            if int(current_time_sequence[_i]) % int(str(_time_sequence[_i])[2:]) != 0:
+        elif str(time_sequence[_i]).startswith('*/'):
+            if int(current_time_sequence[_i]) % int(str(time_sequence[_i])[2:]) != 0:
                 return False
         else:
-            _nodes = str(_time_sequence[_i]).split(',')
+            _nodes = str(time_sequence[_i]).split(',')
             _rt = False
             for _node in _nodes:
                 if _node.find('-') != -1:
